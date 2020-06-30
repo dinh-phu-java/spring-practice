@@ -19,6 +19,11 @@
 		<constructor-arg ref="myFortune"/>
 	</bean>
 
+	<bean id="databaseReader" class="com.dinhphu.test.DatabaseReader"></bean>
+	<bean id="fileReader" class="com.dinhphu.test.FileReader"></bean>
+	<bean id="myEmployee" class="com.dinhphu.test.Boss">
+		<constructor-arg ref="fileReader"/>
+	</bean>
 </beans>
 
 

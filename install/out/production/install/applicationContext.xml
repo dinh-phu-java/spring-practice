@@ -15,22 +15,14 @@
 
 	</bean>
 
-
 	<bean id="myCoach" class="com.luv2code.springdemo.BaseballCoach">
 		<constructor-arg ref="myFortune"/>
 	</bean>
 
-	<bean id="beanClass" class="com.dinhphu.test.HapplyFortuneService">
-
-	</bean>
-	<bean id="testBean" class="com.dinhphu.test.BaseballCoach">
-		<constructor-arg ref="beanClass"/>
-	</bean>
-	<bean id="sadBean" class="com.dinhphu.test.SadFortuneService">
-
-	</bean>
-	<bean id="footBallCoach" class="com.dinhphu.test.FootballCoach">
-		<constructor-arg ref="sadBean"/>
+	<bean id="databaseReader" class="com.dinhphu.test.DatabaseReader"></bean>
+	<bean id="fileReader" class="com.dinhphu.test.FileReader"></bean>
+	<bean id="myEmployee" class="com.dinhphu.test.Boss">
+		<constructor-arg ref="fileReader"/>
 	</bean>
 </beans>
 

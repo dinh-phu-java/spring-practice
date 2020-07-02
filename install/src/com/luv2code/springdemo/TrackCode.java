@@ -1,6 +1,13 @@
 package com.luv2code.springdemo;
 
 public class TrackCode implements Coach {
+
+    private FortuneService fortuneService;
+
+    public TrackCode(FortuneService fortuneService){
+        this.fortuneService=fortuneService;
+    }
+
     @Override
     public String getDailyWorkout(){
         return "Run a hard 5k";
@@ -8,6 +15,7 @@ public class TrackCode implements Coach {
 
     @Override
     public String getDailyFortune() {
-        return null;
+       return "Just do it: "+ fortuneService.getFortune();
     }
+
 }

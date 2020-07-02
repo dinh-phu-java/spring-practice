@@ -10,26 +10,20 @@
 	<!-- add entry to enable component scanning -->
 
 	<context:component-scan base-package="com.luv2code.springdemo" />
-<!--	load the properites file: sport.properties-->
 	<context:property-placeholder location="classpath:sport.properties"/>
-	<bean id="myFortune" class="com.luv2code.springdemo.HappyFortuneService">
-
-	</bean>
-
-	<bean id="myCoach" class="com.luv2code.springdemo.TrackCode">
-		<!--Constructor injection -->
-		<constructor-arg ref="myFortune"/>
-	</bean>
-
+	<bean id="myHappyFortuneService" class="com.luv2code.springdemo.HappyFortuneService"></bean>
+	<bean id="phuFortuneService" class="com.luv2code.springdemo.PhuFortuneService"></bean>
 	<bean id="myCricketCoach" class="com.luv2code.springdemo.CricketCoach">
-		<!--set up setter injection-->
-		<property name="fortuneService" ref="myFortune"/>
-
+		<property name="fortuneService" ref="myHappyFortuneService"/>
 		<property name="emailAddress" value="${foo.email}"/>
+		<property name="team" value="foo.team"/>
+	</bean>
 
+	<bean id="myFootBallCoach" class="com.luv2code.springdemo.FootBallCoach">
+		<property name="fortuneService" ref="phuFortuneService"/>
+		<property name="email" value="${foo.email}"/>
 		<property name="team" value="${foo.team}"/>
 	</bean>
-
 </beans>
 
 

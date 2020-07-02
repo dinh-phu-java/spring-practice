@@ -1,6 +1,8 @@
 package com.luv2code.springdemo;
 
-public class TrackCode implements Coach {
+import org.springframework.beans.factory.DisposableBean;
+
+public class TrackCode implements Coach, DisposableBean {
 
     private FortuneService fortuneService;
 
@@ -24,5 +26,10 @@ public class TrackCode implements Coach {
 
     public void doMyCleanupStuffYoYo(){
         System.out.println("TrackCoach: inside method doMyCleanupStuff!");
+    }
+    //with prototype scope
+    @Override
+    public void destroy() throws Exception {
+        //do some destroy things;
     }
 }
